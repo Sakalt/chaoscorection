@@ -1,0 +1,16 @@
+{
+    "characters": [
+        {
+            "name": "You are idiot",
+            "skills": ["SummonWindows"]
+        },
+        {
+            "name": "Scratch猫",
+            "skills": ["DistractEnemy"]
+        },
+        {
+            "name": "スゴイネギ",
+            "skills": ["Heal"]
+        }
+    ]
+}
