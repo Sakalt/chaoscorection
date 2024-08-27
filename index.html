@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaos Collection Game</title>
+    <title>カオスコレクションゲーム</title>
     <style>
         canvas {
             border: 1px solid black;
@@ -16,11 +16,20 @@
             padding: 10px;
             font-size: 16px;
         }
+        #coinDisplay {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
+    <h1>カオスコレクションゲーム</h1>
+    <div id="coinDisplay">コイン: 100</div>
     <canvas id="gameCanvas"></canvas>
-    <button id="spawnEnemyButton">Spawn Enemy</button>
+    <button id="spawnEnemyButton">敵を召喚</button>
+    <button id="youAreIdiotButton">You are idiot 召喚</button>
+    <button id="scratchCatButton">Scratch猫 召喚</button>
     <script src="game.js"></script>
 </body>
 </html>
