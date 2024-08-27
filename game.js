@@ -1,5 +1,6 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+const coinDisplay = document.getElementById('coinDisplay');
 
 canvas.width = window.innerWidth * 0.8; // モバイル対応のために幅を調整
 canvas.height = window.innerHeight * 0.6;
@@ -23,6 +24,7 @@ fetch('characters.json')
 
 function initializeGame() {
     loadSavedData(); // ローカルストレージからデータを読み込み
+    updateCoinDisplay(); // コイン表示を初期化
     requestAnimationFrame(gameLoop);
 }
 
@@ -34,10 +36,14 @@ function loadSavedData() {
     if (unlockedCharacters) availableCharacters = JSON.parse(unlockedCharacters);
 }
 
-// コインを更新
 function updateCoins(amount) {
     coins += amount;
     localStorage.setItem('coins', coins);
+    updateCoinDisplay(); // コイン表示を更新
+}
+
+function updateCoinDisplay() {
+    coinDisplay.textContent = `コイン: ${coins}`;
 }
 
 // キャラクタークラス
@@ -120,6 +126,17 @@ document.getElementById('spawnEnemyButton').addEventListener('click', () => {
         }
     };
     spawnEnemy();
+});
+
+// スキルボタンの設定
+document.getElementById('youAreIdiotButton').addEventListener('click', () => {
+    const character = new Character('You are idiot', Math.random() * canvas.width, Math.random() * canvas.height);
+    character.useSkill('YouAreIdiot');
+});
+
+document.getElementById('scratchCatButton').addEventListener('click', () => {
+    const character = new Character('Scratch猫', Math.random() * canvas.width, Math.random() * canvas.height);
+    character.useSkill('ScratchCat');
 });
 
 // ゲームループ
